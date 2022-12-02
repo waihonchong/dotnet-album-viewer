@@ -1,5 +1,5 @@
 # escape=`
-FROM microsoft/dotnet:2.1-sdk-nanoserver-1809 AS builder
+FROM mcr.microsoft.com/dotnet/sdk:2.1-nanoserver-1809 AS builder
 
 WORKDIR /album-viewer
 COPY AlbumViewerNetCore.sln .
@@ -12,7 +12,7 @@ COPY src src
 RUN dotnet publish .\src\AlbumViewerNetCore\AlbumViewerNetCore.csproj
 
 # app image
-FROM microsoft/dotnet:2.1-aspnetcore-runtime-nanoserver-1809
+FROM mcr.microsoft.com/dotnet/aspnet:2.1-nanoserver-1809
 
 WORKDIR /album-viewer
 COPY --from=builder /album-viewer/src/AlbumViewerNetCore/bin/Debug/netcoreapp2.0/publish/ .
