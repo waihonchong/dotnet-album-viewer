@@ -12,5 +12,10 @@ pipeline {
                 echo 'Running dotnet file'
             }
         }
+		stage('Deploy') {
+            steps {
+                echo 'Simulating deploy'
+            }
+        }
     }
 }
