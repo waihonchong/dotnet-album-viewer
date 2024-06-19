@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building dotnet file'
+            }
+        }
+        stage('Run') {
+            steps {
+                echo 'Running dotnet file'
+            }
+        }
+    }
+}
