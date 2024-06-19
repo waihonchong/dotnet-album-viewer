@@ -4,6 +4,18 @@ pipeline {
 		cron('H/5 * * * *')
 	}
     stages {
+		stage('Parallel') {
+			steps {
+				parallel(
+					"First One": {
+						 echo 'Fake step 1'
+					}
+					, "Second One": {
+						 echo 'Fake step 2'
+					}
+				)
+			}
+		}
         stage('Build') {
             steps {
                 echo 'Building dotnet file'
